@@ -1,0 +1,11 @@
+/** @section Quotes */
+
+* + .quote-default-cite { margin-top: 50px * $xs-multiplier }
+
+@include media-breakpoint-up( lg ) {
+	* + .quote-default-cite { margin-top: 50px * $lg-multiplier }
+}
+
+@include media-breakpoint-up( xxl ) {
+	* + .quote-default-cite { margin-top: 50px }
+}

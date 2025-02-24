@@ -1,0 +1,64 @@
+/** @section Footers */
+
+// Footer Classic
+.footer-classic {
+	padding: 40px 0;
+	font-weight: 300;
+	background: $dark;
+
+	a {
+		color: $white;
+
+		&:hover,
+		&:focus {
+			color: rgba( $white, .5 );
+		}
+	}
+
+	.footer-menu {
+		@include group( 50px * $xs-multiplier, 2px );
+	}
+
+	.footer-menu-item {
+		display: inline-block;
+	}
+
+	* + .list-icons { margin-top: 20px }
+	* + .footer-contact { margin-top: 40px * $xs-multiplier }
+	* + .rights { margin-top: 20px * $lg-multiplier }
+	* + .footer-menu { margin-top: 20px * $lg-multiplier }
+}
+
+.footer-menu-item {
+	display: inline-block;
+}
+
+@include media-breakpoint-up( lg ) {
+	.footer-classic {
+		padding: 70px 0;
+
+		.footer-menu {
+			@include groupX( 50px * $lg-multiplier );
+		}
+
+		* + .list-icons { margin-top: 114px * $lg-multiplier }
+		* + .footer-contact { margin-top: 40px * $lg-multiplier }
+		* + .rights { margin-top: 20px * $lg-multiplier }
+		* + .footer-menu { margin-top: 20px * $lg-multiplier }
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.footer-classic {
+		padding: 105px 0;
+
+		.footer-menu {
+			@include groupX( 50px );
+		}
+
+		* + .list-icons { margin-top: 114px }
+		* + .footer-contact { margin-top: 40px }
+		* + .rights { margin-top: 20px }
+		* + .footer-menu { margin-top: 38px }
+	}
+}

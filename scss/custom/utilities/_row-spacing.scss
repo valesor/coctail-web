@@ -1,0 +1,55 @@
+/** @section Row spacing */
+
+.row-0 {
+	@include grid-offset(0px);
+}
+
+.row-15 {
+	@include grid-offset(15px);
+}
+
+.row-20 {
+	@include grid-offset(20px);
+}
+
+.row-30 {
+	@include grid-offset(30px);
+}
+
+.row-40 {
+	@include grid-offset(40px);
+}
+
+* + .row-content-1 {
+	margin-top: 33px * $lg-multiplier;
+}
+* + .row-content-2 {
+	margin-top: 99px * $xs-multiplier;
+}
+* + .row-content-3 {
+	margin-top: 30px;
+}
+
+@include media-breakpoint-up( lg ) {
+	* + .row-content-1 {
+		margin-top: 33px * $lg-multiplier;
+	}
+	* + .row-content-2 {
+		margin-top: 99px * $lg-multiplier;
+	}
+	* + .row-content-3 {
+		margin-top: 68px * $lg-multiplier;
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	* + .row-content-1 {
+		margin-top: 33px;
+	}
+	* + .row-content-2 {
+		margin-top: 99px;
+	}
+	* + .row-content-3 {
+		margin-top: 68px;
+	}
+}

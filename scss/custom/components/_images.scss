@@ -1,0 +1,33 @@
+/** @section Images */
+
+// Standard img style
+img {
+	display: inline-block;
+	max-width: 100%;
+	height: auto;
+}
+
+@include media-breakpoint-down( md ) {
+	.img-responsive {
+		display: inline-block;
+		max-width: 320px;
+	}
+}
+
+@include media-breakpoint-up( lg ) {
+	.img-layout {
+		max-width: 510px;
+	}
+}
+
+@include media-breakpoint-up( xl ) {
+	.img-layout {
+		max-width: 690px;
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.img-layout {
+		max-width: 807px;
+	}
+}

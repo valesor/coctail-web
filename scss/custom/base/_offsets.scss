@@ -1,0 +1,138 @@
+/** @section Offsets */
+
+.img-responsive + h2 {
+	margin-top: 87px * $xs-multiplier;
+}
+
+h2 + h6 {
+	margin-top: 29px * $xs-multiplier;
+}
+
+.row + h6 {
+	margin-top: 51px * $lg-multiplier;
+}
+
+h2 + p {
+	margin-top: 29px * $xs-multiplier;
+}
+
+h4 + p {
+	margin-top: 15px;
+}
+
+h2 + .p-offset-1 {
+	margin-top: 15px;
+}
+
+p + p {
+	margin-top: 26px * $xs-multiplier;
+}
+
+@include media-breakpoint-up( lg ) {
+	.img-responsive + h2 {
+		margin-top: 87px * $lg-multiplier;
+	}
+
+	h2 + h6 {
+		margin-top: 29px * $lg-multiplier;
+	}
+
+	.row + h6 {
+		margin-top: 51px * $lg-multiplier;
+	}
+
+	h2 + p {
+		margin-top: 29px * $lg-multiplier;
+	}
+
+	h4 + p {
+		margin-top: 29px * $lg-multiplier;
+	}
+
+	h2 + .p-offset-1 {
+		margin-top: 69px * $lg-multiplier;
+	}
+
+	p + p {
+		margin-top: 26px * $lg-multiplier;
+	}
+
+	* + .mar-t-1 {
+		margin-top: 160px * $lg-multiplier;
+	}
+
+	.mar-l-1 {
+		margin-left: map-get( $container-max-widths, lg ) /12;
+	}
+	.mar-l-2 {
+		margin-left: map-get( $container-max-widths, lg ) /6;
+	}
+	.mar-l-3 {
+		margin-left: map-get( $container-max-widths, lg ) /4;
+	}
+}
+
+@include media-breakpoint-up( xl ) {
+	.mar-l-1 {
+		margin-left: map-get( $container-max-widths, xl ) /12;
+	}
+	.mar-l-2 {
+		margin-left: map-get( $container-max-widths, xl ) /6;
+	}
+	.mar-l-3 {
+		margin-left: map-get( $container-max-widths, xl ) /4;
+	}
+}
+
+@include media-breakpoint-up( xxl ) {
+	.img-responsive + h2 {
+		margin-top: 87px;
+	}
+
+	h2 + h6 {
+		margin-top: 29px;
+	}
+
+	.row + h6 {
+		margin-top: 51px;
+	}
+
+	h2 + p {
+		margin-top: 29px;
+	}
+
+	h4 + p {
+		margin-top: 29px;
+	}
+
+	h2 + .p-offset-1 {
+		margin-top: 69px;
+	}
+
+	p + p {
+		margin-top: 26px;
+	}
+
+	* + .mar-t-1 {
+		margin-top: 160px;
+	}
+
+	.mar-l-1 {
+		margin-left: map-get( $container-max-widths, xxl ) /12;
+	}
+	.mar-l-2 {
+		margin-left: map-get( $container-max-widths, xxl ) /6;
+	}
+	.mar-l-3 {
+		margin-left: map-get( $container-max-widths, xxl ) /4;
+	}
+	div.mar-t-2 {
+		margin-top: -85px;
+	}
+	div.mar-b-1 {
+		margin-bottom: 69px;
+	}
+	div.mar-b-2 {
+		margin-bottom: 70px;
+	}
+}

@@ -1,0 +1,60 @@
+/** @section Intro */
+
+.intro {
+	position: relative;
+	z-index: 0;
+	overflow: hidden;
+	background-size: 0 0;
+	@include flex-min-height( 50vh, '.intro-inner' );
+
+	.intro-inner {
+		padding: 50px 0;
+	}
+
+	&::after {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: calc( 100% + 100px );
+		height: calc( 100% + 100px );
+		content: '';
+		background: inherit;
+		background-size: cover;
+		z-index: -1;
+		animation: bg-transition 20s infinite;
+	}
+}
+
+@include media-breakpoint-up( lg ) {
+	.intro {
+		.intro-inner {
+			padding: 0;
+			justify-content: flex-end;
+		}
+
+		.text-large {
+			opacity: .4;
+			transform: translateY(.17em);
+		}
+	}
+}
+
+@include media-breakpoint-up( xl ) {
+	.intro {
+		.intro-inner {
+			min-height: calc( 100vh - 83px );
+		}
+	}
+}
+
+@keyframes bg-transition {
+	0% {
+		transform: translate( 0, 0 );
+	}
+	50% {
+		transform: translate( -100px, -100px );
+	}
+	100% {
+		transform: translate( 0, 0 );
+	}
+}

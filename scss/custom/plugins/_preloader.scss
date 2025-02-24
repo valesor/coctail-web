@@ -1,0 +1,93 @@
+/** @section Preloader */
+
+
+.preloader {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10000;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	background: $white;
+	transition: .3s all ease;
+
+	&.loaded {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+.preloader-body {
+	text-align: center;
+
+	p {
+		position: relative;
+		right: -8px;
+	}
+}
+
+
+// Custom Styles
+.preloader-item {
+	--preloader-secondary: #25262e;
+	width: 80px;
+	height: auto;
+}
+
+#teabag {
+	transform-origin: top center;
+	transform: rotate(3deg);
+	animation: swing 2s infinite
+}
+
+#steamL {
+	stroke-dasharray: 13;
+	stroke-dashoffset: 13;
+	animation: steamLarge 2s infinite;
+}
+
+#steamR {
+	stroke-dasharray: 9;
+	stroke-dashoffset: 9;
+	animation: steamSmall 2s infinite;
+}
+
+.preloader-title {
+	margin-top: 15px;
+}
+
+@keyframes swing {
+	50% {
+		transform: rotate(-3deg)
+	}
+}
+
+@keyframes steamLarge {
+	0% {
+		stroke-dashoffset: 13;
+		opacity: .6;
+	}
+	100% {
+		stroke-dashoffset: 39;
+		opacity: 0;
+	}
+}
+
+@keyframes steamSmall {
+	10% {
+		stroke-dashoffset: 9;
+		opacity: .6;
+	}
+	80% {
+		stroke-dashoffset: 27;
+		opacity: 0;
+	}
+	100% {
+		stroke-dashoffset: 27;
+		opacity: 0;
+	}
+}

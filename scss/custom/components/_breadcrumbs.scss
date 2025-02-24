@@ -1,0 +1,99 @@
+/** @section Breadcrumbs */
+
+// Local variables
+$breadcrumb-padding-vertical: 8px;
+$breadcrumb-padding-horizontal: 15px;
+$breadcrumb-color: $dark;
+$breadcrumb-active-color: $body-color;
+$breadcrumb-separator: "|";
+
+// Base styles
+.breadcrumbs-custom {
+	position: relative;
+	text-align: center;
+	background-position: center;
+}
+
+.breadcrumbs-custom-image {
+	padding: 10px 0;
+}
+
+.breadcrumbs-custom-inner {
+	padding-top: 30px;
+}
+
+.breadcrumbs-custom-title {
+	line-height: .71;
+	transform: translateY(3px);
+}
+
+.breadcrumbs-custom-path {
+	@include spacingX(30px);
+
+	a {
+		display: inline;
+		vertical-align: middle;
+
+		&,
+		&:active,
+		&:focus {
+			color: $breadcrumb-color;
+		}
+	}
+
+	li {
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 14px;
+		line-height: 1.7;
+
+		&::after {
+			content: $breadcrumb-separator;
+			position: absolute;
+			top: 52%;
+			right: -5px;
+			display: inline-block;
+			font-size: inherit;
+			font-style: normal;
+			color: $breadcrumb-color;
+			transform: translate3d(0, -50%, 0);
+		}
+	}
+
+	li:last-child {
+		&:after {
+			display: none;
+		}
+	}
+
+	a:hover,
+	li.active {
+		color: $breadcrumb-active-color;
+	}
+
+	li.active {
+		top: 1px;
+	}
+}
+
+
+@include media-breakpoint-up( lg ) {
+	.breadcrumbs-custom-path {
+		@include spacingX( 50px );
+
+		.breadcrumbs-custom-inner {
+			padding-top: 40px;
+		}
+	}
+
+	.breadcrumbs-custom-image {
+		padding: 0;
+	}
+}
+
+@include media-breakpoint-up(xxl) {
+	.breadcrumbs-custom-inner {
+		padding-top: 53px;
+	}
+}

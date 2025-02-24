@@ -1,0 +1,93 @@
+/** @section Buttons */
+
+// Button General Styles
+.btn {
+	position: relative;
+	overflow: hidden;
+	text-transform: $btn-text-transform;
+	text-overflow: ellipsis;
+}
+
+.page {
+	.btn {
+		&:not([class*='shadow']) {
+			box-shadow: none;
+		}
+
+		&:not(:disabled):not(.disabled):active:focus,
+		&:not(:disabled):not(.disabled).active:focus{
+			&:not([class*='shadow']) {
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+// Appearance style
+.btn-primary {
+	@include btn-variant($white, $primary, $primary, $white, $dark, $dark);
+}
+
+.btn-dark {
+	@include btn-variant($white, $dark, $dark, $white, $primary, $primary);
+}
+
+.btn-gray-100 {
+	@include btn-variant($gray-800, $gray-100, $gray-100, $gray-800, darken($gray-100, 5%), darken($gray-100, 5%));
+}
+
+
+// Button effects
+.btn-ujarak {
+	position: relative;
+	z-index: 0;
+	transition: background .4s, border-color .4s, color .4s;
+
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: $primary;
+		z-index: -1;
+		opacity: 0;
+		transform: rotate( 90deg );
+		transform-origin: 100% 100%;
+		transition: transform 0.42s, opacity 0.42s;
+		border-radius: inherit;
+	}
+
+	&,
+	&::before {
+		transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	}
+
+	&:hover {
+		transition: background .4s .4s, border-color .4s 0s, color .2s 0s;
+
+		&::before {
+			opacity: 1;
+			transform: rotate( 0deg );
+		}
+	}
+}
+
+* + .btn { margin-top: 30px * $lg-multiplier }
+
+@include media-breakpoint-up( lg ) {
+	.btn {
+		min-width: 200px;
+	}
+
+	* + .btn { margin-top: 30px * $lg-multiplier }
+}
+
+@include media-breakpoint-up( xxl ) {
+	.btn {
+		min-width: 260px;
+	}
+
+	* + .btn { margin-top: 30px }
+}
