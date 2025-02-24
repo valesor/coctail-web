@@ -1,0 +1,47 @@
+extends ../_skeleton
+
+block variables
+	- pageName = 'Contacts'
+
+block page
+	include ../sections/_header-classic
+
+	+breadcrumbs
+
+	// Gallery
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			h2 Contacts
+			.row.row-30.row-content-1
+				.col-lg-4
+					p Sed porttitor aliquet hendrerit amet sed convallis hendrerit. Lobortis sem feugiat leo volutpat. Lacus nec eget ullamcorper adipiscing enim nisi, nulla sodales scelerisque. Elementum sed erat erat leo et.
+				.col-lg-4.col-xl-3.offset-lg-1
+					ul.list-md
+						li.text-small 3891 Ranchview Dr. Richardson, California 62639
+						li.text-small
+							| TEL:
+							a.link-inherit( href='tel:#' ) +(001) 23 45 67 89
+						li.text-small: a.link-inherit( href='mailto:#' ) mail@demolink.org
+				.col-lg-3
+					.text-small Open daily from 7am – 4pm
+
+			.row.row-30.row-content-2.align-items-center.justify-content-center.flex-lg-row-reverse
+				.col-md-10.col-lg-7.col-xl-8
+					form.rd-mailform.rd-form-1(data-form-output="form-output-global", data-form-type='order', method='post', action='bat/rd-mailform.php')
+						.form-inner
+							.form-wrap
+								label.form-label(for="contact-date") Date
+								input#contact-date.form-input(type="text", name="date", data-constraints='@Required', data-time-picker="date" )
+							.form-wrap
+								label.form-label(for="contact-time") Time
+								input#contact-time.form-input(type="text", name="time", data-constraints='@Required', data-time-picker="time" )
+							.form-wrap
+								label.form-label(for="contact-phone") Phone
+								input#contact-phone.form-input(type="text" name="phone" data-constraints='@Required @PhoneNumber')
+						.form-button
+							button(type="submit").btn.btn-dark.btn-ujarak Find a table
+				.col-md-5.col-lg-5.col-xl-4
+					.img-responsive
+						+img( 'contacts-01-520x650' )
+
+	include ../sections/_footer-classic

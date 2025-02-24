@@ -1,0 +1,93 @@
+extends ../_skeleton
+
+block variables
+	- pageName = 'About'
+
+block page
+	include ../sections/_header-classic
+
+	+breadcrumbs
+
+	// About us
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-30.align-items-center.justify-content-center.justify-content-lg-start
+				.col-11.offset-lg-1.mar-b-1
+					h2
+						span.text-ulight who
+						br
+						span we are
+				.col-lg-4.offset-lg-3
+					p We’re a small, independently run bar in the fantastic area offering a comfortable atmosphere with superb drinks and service. We offer a range of unique cocktails you won’t find anywhere else.
+				.col-lg-5.offset-lg-2.mar-b-2
+					p.text-italic Our bar also provides a wide, ever-changing range of craft beer, along with cider, wine and a large collection of spirits.
+				.col-lg-3.d-none.d-lg-block
+				.col-6.col-lg-3
+					.img-responsive: +img( 'about-01-383x480' )
+				.col-6.col-lg-3
+					.img-responsive: +img( 'about-02-383x480' )
+				.col-lg-4.offset-lg-1.d-none.d-lg-block
+					.img-responsive: +img( 'about-03-520x800' )
+				.col-lg-5.col-xl-4.offset-lg-1.mar-t-2
+					p Ipsum, nulla placerat mollis non sagittis aliquam, placerat. Consequat odio ut turpis dignissim nec neque. Consectetur iaculis commodo feugiat urna. Ultrices massa amet neque turpis in nisi. Eu adipiscing convallis integer.
+					p Viverra tristique. Ullamcorper metus venenatis aliquam leo in gravida. Euismod quis ac ut aliquet tristique. Venenatis volutpat ultricies in iaculis amet nisl elit, viverra. Consectetur pellentesque sed hac ultricies purus hac adipiscing duis quam. Maecenas est nisi, lorem consequat sed ut quam viverra.Mauris arcu neque, lobortis facilisis in. Dignissim phasellus nulla nunc augue amet diam augue eu. Sed lorem lorem eget in ante ultricies est leo.
+
+	// Team
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-40.justify-content-between.align-items-center
+				.col-lg-3.mt-lg-5
+					h2
+						span.text-ulight Our
+						br
+						span team
+					p Dictum et consectetur et tellus tortor. Vel id risus duis gravida eu maecenas habitant dictumst. In odio auctor arcu sed id varius.
+				.col-lg-8
+					.owl-carousel.owl-carousel-1(
+						data-items='1',
+						data-sm-items='2',
+						data-md-items='3',
+						data-lg-items='2',
+						data-xl-items='2',
+						data-autoplay='true',
+						data-owl= {
+							nav: true
+						}
+					)
+						+thumbnail-default({
+							img: 'person-01-520x680',
+							title: 'Jacob Jones',
+							meta: 'executive chef'
+						})
+						+thumbnail-default({
+							img: 'person-02-520x680',
+							title: 'Emma Smith',
+							meta: 'pastry chef'
+						})
+						+thumbnail-default({
+							img: 'person-03-520x680',
+							title: 'Cody Fisher',
+							meta: 'bartender'
+						})
+						+thumbnail-default({
+							img: 'person-04-520x680',
+							title: 'Albert Flores',
+							meta: 'head sommelier'
+						})
+
+	// Team
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-30.justify-content-center.justify-content-lg-start
+				.col-lg-4.col-xl-3.offset-lg-1
+					.img-responsive
+						+img( 'about-04-383x430' )
+				.col-md-8.col-lg-6.col-xl-5.col-xxl-4.offset-lg-1.mar-t-1
+					h2
+						span join our
+						br
+						span.text-ulight team
+					p.p-offset-1.mar-l-1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat lectus lectus lectus at tellus ultricies nunc.
+					a.mar-l-1.btn.btn-dark.btn-ujarak( href='#' ) Apply
+
+	include ../sections/_footer-classic

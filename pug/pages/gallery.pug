@@ -1,0 +1,58 @@
+extends ../_skeleton
+
+block variables
+	- pageName = 'Gallery'
+
+block page
+	include ../sections/_header-classic
+
+	+breadcrumbs
+
+	// Gallery
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-40.justify-content-center.justify-content-lg-between.align-items-center
+				.col-lg-4.col-xl-3
+					h2
+						span.text-ulight Our
+						br
+						span gallery
+					p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas rhoncus nibh odio vitae nunc ligula tempor est. Magna nisi orci varius eget sed.
+				.col-md-11.col-lg-9.offset-lg-2
+					.section.swiper-container.swiper-slider.swiper-slider-1( data-swiper!={
+						autoplay: {
+							delay: 4567
+						},
+						effect: 'fade',
+						loop: false,
+					})
+						.swiper-wrapper
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-01-1220x775',
+									imgOriginal: 'swiper-01-1220x775'
+								})
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-02-1220x775',
+									imgOriginal: 'swiper-02-1220x775'
+								})
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-03-1220x775',
+									imgOriginal: 'swiper-03-1220x775'
+								})
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-04-1220x775',
+									imgOriginal: 'swiper-04-1220x775'
+								})
+
+						// Swiper scrollbar
+						.swiper-scrollbar
+
+						// Swiper Navigation
+						.swiper-button-prev.fa-angle-left
+						.swiper-button-next.fa-angle-right
+
+	include ../sections/_footer-classic

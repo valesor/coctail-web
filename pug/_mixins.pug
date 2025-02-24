@@ -1,0 +1,159 @@
+//- Image
+	@param {string} name
+mixin img( name, options )
+	-
+		var size = getImageSize( name );
+		if( options && options.retina ) { size[0] = ~~(size[0]/2); size[1] = ~~(size[1]/2); }
+	img( src= procImg( name ), alt='', width= size[0], height= size[1], loading='lazy' )&attributes( attributes )
+
+
+//- Loop without indexing mixin
+	@param {number} iterations - number of iterations
+mixin loop( iterations )
+	- for ( var i = 0; i < iterations; i++ )
+		block
+
+
+//- Parallax Section
+	@param {object} obj - parameters storage
+	@param {string} obj.img - image path
+	@param {string} obj.innerClass - content wrapper class
+mixin parallax( obj )
+	section.parallax-container( data-parallax-img= procImg( obj.img ) )&attributes( attributes )
+		.parallax-content( class= obj.innerClass )
+			block
+
+
+//- Breadcrumbs
+	@param {Array}  [path] - other navigation path
+	@example +breadcrumbs([ { title:'About Us', link:'about-us.html' }, { title:'Team member' } ])
+mixin breadcrumbs( path )
+	-
+		if ( !path ) {
+			if ( breadcrumbs && breadcrumbs.length ) path = breadcrumbs;
+			else path = [{ title: pageName }];
+		}
+
+	// Breadcrumbs
+	section.breadcrumbs-custom
+		.breadcrumbs-custom-image.bg-image.context-dark.bg-mask( style='background-image:url(images/intro-1920x815.jpg)' )
+			.container.container-wide
+				.text-large.breadcrumbs-custom-title= logo.name
+		.breadcrumbs-custom-inner
+			.container.container-wide
+				if ( path[0].title.toLowerCase() !== 'home' )
+					ul.breadcrumbs-custom-path
+						li: a( href='index.html' ) Home
+						- for ( var i = 0; i < path.length; i++ )
+							if ( i === path.length - 1 )
+								li.active= path[i].title
+							else
+								li: a( href= path[i].link )= path[i].title
+
+
+//- Main Navigation
+mixin navigation( menu, type )
+	if( !type )
+		ul.rd-navbar-nav&attributes( attributes )
+			each item in menu
+				li.rd-nav-item( class= { active: item.active } )
+					a.rd-nav-link( href= item.link )= item.title
+					if( item.dropdown )
+						+navigation( item.dropdown, 'dropdown' )
+					if( item.megamenu )
+						+navigation( item.megamenu, 'megamenu' )
+
+	else if( type === 'dropdown' )
+		ul.rd-menu.rd-navbar-dropdown
+			each item in menu
+				li.rd-dropdown-item( class= { active: item.active } )
+					a.rd-dropdown-link( href= item.link )= item.title
+					if( item.dropdown )
+						+navigation( item.dropdown, 'dropdown' )
+
+	else if( type === 'megamenu' )
+		ul.rd-menu.rd-navbar-megamenu
+			each item in menu
+				li.rd-megamenu-item
+					if ( item instanceof Array )
+						+navigation( item, 'column' )
+					else
+						+navigation( item, 'block' )
+
+	else if( type === 'column' )
+		each item in menu
+			+navigation( item, 'block' )
+
+	else if( type === 'block' )
+		if (menu.title && menu.link)
+			h6.rd-megamenu-title: a( href= menu.link )= menu.title
+		else if (menu.title)
+			h6.rd-megamenu-title= menu.title
+		if (menu.list)
+			+navigation( menu.list, 'list' )
+
+	else if( type === 'list' )
+		ul.rd-megamenu-list
+			each item in menu
+				li.rd-megamenu-list-item
+					a.rd-megamenu-list-link( href= item.link )= item.title
+
+
+//- Logo
+mixin logo
+	//Brand
+	a.brand( href='index.html' )&attributes( attributes )
+		+img( logo.default, { retina: true } ).brand-logo-dark
+		+img( logo.inverse, { retina: true } ).brand-logo-light
+
+
+//- Copyright
+mixin rights
+	p.rights&attributes( attributes )
+		span &copy;&nbsp;
+		span.copyright-year
+		span &nbsp;
+		span= logo.name
+		span .&nbsp;
+		a( href='privacy-policy.html' ) Privacy Policy
+
+//- Thumbnail gallery
+	@param {object} data - data object
+	@param {string} data.img - thumbnail image
+	@param {string} data.imgOriginal - thumbnail original image
+mixin thumbnail-gallery( data )
+	// Thumbnail
+	.thumbnail-gallery&attributes( attributes )
+		a.thumbnail-gallery-media( href=`images/${data.imgOriginal}.jpg`, data-lightgallery='item' )
+			+img( data.img ).thumbnail-gallery-img
+
+//- Thumbnail default
+mixin thumbnail-default( data )
+	.thumbnail-default&attributes( attributes )
+		.thumbnail-default-media.img-responsive
+			+img( data.img ).thumbnail-default-img
+		h4.thumbnail-default-title= data.title
+		.thumbnail-default-meta= data.meta
+
+//- Thumbnail simple
+mixin thumbnail-simple( data )
+	.thumbnail-simple&attributes( attributes )
+		a.thumbnail-simple-media( href='#' )
+			+img( data.img ).thumbnail-simple-img
+		h6.thumbnail-simple-title: a( href='#' )= data.title
+
+//- Block simple
+mixin block-simple( data )
+	.block-simple&attributes( attributes )
+		h4.block-simple-title: a( href='#' )= data.title
+		.block-simple-text
+			div= data.text1
+			if ( data.text2 )
+				div= data.text2
+
+//- Quote default
+mixin quote-default( data )
+	blockquote.quote-default&attributes( attributes )
+		.quote-default-text.h4: q= data.quote
+		.quote-default-cite.text-small: cite= data.cite
+

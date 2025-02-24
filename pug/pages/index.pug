@@ -1,0 +1,303 @@
+extends ../_skeleton
+
+block page
+	include ../sections/_header-classic
+
+	// Intro
+	section.intro.bg-image.bg-mask.context-dark( style='background-image:url(images/intro-1920x815.jpg)' )
+		.intro-inner
+			.container.container-wide.text-center.text-lg-start
+				.text-large.text-hover Cocktail Bar
+
+	// About us
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-30.align-items-center.justify-content-center.justify-content-lg-start
+				.col-11.offset-lg-1.mar-b-1.wow.fadeInLeft
+					h2
+						span.text-ulight who
+						br
+						span we are
+				.col-lg-4.offset-lg-3.wow.fadeInRight
+					p We’re a small, independently run bar in the fantastic area offering a comfortable atmosphere with superb drinks and service. We offer a range of unique cocktails you won’t find anywhere else.
+				.col-lg-5.offset-lg-2.mar-b-2.wow.fadeInLeft
+					p.text-italic Our bar also provides a wide, ever-changing range of craft beer, along with cider, wine and a large collection of spirits.
+				.col-lg-3.d-none.d-lg-block
+				.col-6.col-lg-3
+					.img-responsive: +img( 'about-01-383x480' )
+				.col-6.col-lg-3
+					.img-responsive: +img( 'about-02-383x480' )
+				.col-lg-4.offset-lg-1.d-none.d-lg-block
+					.img-responsive: +img( 'about-03-520x800' )
+
+	// Gallery
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-40.justify-content-between.align-items-center
+				.col-lg-3.mt-lg-5
+					h2.wow.fadeInLeft
+						span.text-ulight Our
+						br
+						span space
+					p.wow.fadeInLeft( data-wow-delay='.2s' ) With a well-furnished and spacious venue, our cocktail bar is a perfect space for spending your free time.
+				.col-lg-8
+					.section.swiper-container.swiper-slider.swiper-slider-1.swiper-slider-1-1( data-swiper!={
+						autoplay: {
+							delay: 4567
+						},
+						effect: 'fade',
+						loop: false
+					})
+						.swiper-wrapper
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-01-1220x775',
+									imgOriginal: 'swiper-01-1220x775'
+								})
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-02-1220x775',
+									imgOriginal: 'swiper-02-1220x775'
+								})
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-03-1220x775',
+									imgOriginal: 'swiper-03-1220x775'
+								})
+							.swiper-slide
+								+thumbnail-gallery({
+									img: 'swiper-04-1220x775',
+									imgOriginal: 'swiper-04-1220x775'
+								})
+
+						// Swiper scrollbar
+						.swiper-scrollbar
+
+					.list-icons.text-small-1
+						.list-icons-item
+							.list-icons-icon.icomoon-pin
+							.list-icons-body: a.link-inherit( href='#' ) 3891 Ranchview Dr. Richardson, California 62639
+
+	// Menu
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			h2.wow.fadeInUp Menu
+			#tabs-1.tabs-custom
+				//Nav tabs
+				ul.nav.nav-tabs.nav-line.wow.fadeInUp
+					li.nav-item(role='presentation'): a.nav-link.h6(href='#tabs-1-1' data-bs-toggle='tab') Breakfast
+					li.nav-item(role='presentation'): a.nav-link.h6(href='#tabs-1-2' data-bs-toggle='tab') drinks
+					li.nav-item(role='presentation'): a.nav-link.h6(href='#tabs-1-3' data-bs-toggle='tab') lunch
+
+				//Tab panes
+				.tab-content.wow.fadeInUp
+					div#tabs-1-1.tab-pane.fade
+						.row.row-30.justify-content-center.justify-content-lg-start
+							.col-xs-6.col-lg-4.col-xl-3
+								+block-simple({
+									title: 'French omelette',
+									text1: 'fresh herbs, Spanish onion, roasted peppers, spinach & fetta served with brioche',
+									text2: '19'
+								})
+								+block-simple({
+									title: 'Sweet corn fritters',
+									text1: 'w/ avocado mash, fetta & chicory dressed with crème fraiche',
+									text2: '17'
+								})
+								+block-simple({
+									title: 'Dukkah toast',
+									text1: 'w/ roasted vine tomatoes, dukkah with marinated goats cheese & avocado on toast',
+									text2: '14'
+								})
+							.col-xs-6.col-lg-4.col-xl-3.offset-xl-1
+								+block-simple({
+									title: 'Feast',
+									text1: 'eggs to your liking w mushrooms, roasted tomatoes, chorizo, istra bacon & house relish on toast',
+									text2: '21'
+								})
+								+block-simple({
+									title: 'Fried duck eggs',
+									text1: 'toast, parma prosciutto, roasted tomato, green olives and parmesan',
+									text2: '16'
+								})
+								+block-simple({
+									title: 'Ricotta hotcakes',
+									text1: 'w/ banana, vanilla yoghurt, pistachio, chestnut flower honey (V)',
+									text2: '14'
+								})
+
+					div#tabs-1-2.tab-pane.fade
+						.row.row-30.justify-content-center.justify-content-lg-start
+							.col-xs-6.col-lg-4.col-xl-3
+								+block-simple({
+									title: 'Milkshake',
+									text1: 'salted caramel, vanilla bean',
+									text2: '7'
+								})
+								+block-simple({
+									title: 'Iced coffee',
+									text1: 'w/ vanilla bean ice cream',
+									text2: '4.5'
+								})
+								+block-simple({
+									title: 'Single origin coffee',
+									text1: 'latte, cappucino',
+									text2: '3.5'
+								})
+							.col-xs-6.col-lg-4.col-xl-3.offset-xl-1
+								+block-simple({
+									title: 'Freshly squeezed juice',
+									text1: 'orange, apple, watermelon',
+									text2: '4.5'
+								})
+								+block-simple({
+									title: 'Organic green tea',
+									text1: 'sourced locally',
+									text2: '5.5 / pot'
+								})
+								+block-simple({
+									title: 'Aperol Spritz',
+									text1: 'Ice and slice of orange, prosecco, aperol, soda'
+								})
+							.col-xs-6.col-lg-4.col-xl-3.offset-xl-1
+								+block-simple({
+									title: 'Campari',
+									text1: 'w/ Campari\'s, lush grapefruit notes, soda'
+								})
+								+block-simple({
+									title: 'Tormentoso Bush Vine Pintoage',
+									text1: 'This wine has typical Pinotage aromas of black cherries'
+								})
+
+					div#tabs-1-3.tab-pane.fade
+						.row.row-30.justify-content-center.justify-content-lg-start
+							.col-xs-6.col-lg-4.col-xl-3
+								+block-simple({
+									title: 'Baked duck burger',
+									text1: 'brioche bun, maple bacon, smoked tomato reslish and fries',
+									text2: '24'
+								})
+								+block-simple({
+									title: 'Herb crusted rockling fillet',
+									text1: 'house tartare, cos hearts, cucumber and radish',
+									text2: '18'
+								})
+								+block-simple({
+									title: 'Grilled broccolini salad',
+									text1: 'w/ poached duck egg, peas, sprouts and lemon (GF)',
+									text2: '16.5'
+								})
+							.col-xs-6.col-lg-4.col-xl-3.offset-xl-1
+								+block-simple({
+									title: 'Smoked beetroot salad',
+									text1: 'w/ roasted pumpkin, walnuts, chard and goats cheese (V)',
+									text2: '21'
+								})
+								+block-simple({
+									title: 'Baked millet and vegetable root',
+									text1: 'w/ two poached eggs, activated cashew cream & supergreens pesto.',
+									text2: '20'
+								})
+								+block-simple({
+									title: 'Pan seared snapper',
+									text1: 'w/ potato galette, broccolini, purple cauliflower & shaved baby heirloom beets.',
+									text2: '19'
+								})
+
+	// Menu explore
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-30.justify-content-center.justify-content-lg-between
+				.col-lg-4.col-xl-5.d-none.d-lg-block
+					.img-responsive: +img( 'home-01-658x800' )
+				.col-md-8.col-lg-8.col-xl-6.mt-xl-5
+					.img-responsive: +img( 'home-02-383x430' )
+					h2.wow.fadeInLeft
+						span Seasonal menu —
+						br
+						span.text-ulight hand crafted
+					.p-offset-1
+						.row.justify-content-center.justify-content-lg-between
+							.col-md-10.col-lg-6.offset-lg-2
+								p.wow.fadeInRight We can provide any meal your heart desires using the highest quality, freshest ingredients and the best dishes in our hand-crafted menu.
+								a.btn.btn-dark.btn-ujarak.wow.fadeInLeft( href='menu.html' ) Explore
+
+	// Testimonials
+	section.section.section-lg.bg-dark.context-dark.text-center
+		.container
+			h6 What people are saying
+			.owl-carousel.owl-carousel-2(
+				data-items='1',
+				data-autoplay='true',
+				data-owl= {
+					nav: true,
+					dots: true
+				}
+			)
+				+quote-default({
+					quote: 'Thank you for the impeccable service you provided in our wedding last week. The cocktails were amazing and of the best quality we have ever experienced. All the guests we met after the wedding mentioned your quality service, too.',
+					cite: 'Adam Smith'
+				})
+				+quote-default({
+					quote: 'Me and my wife would like to thank all the staff of Gingo for an impeccable service and excellent cocktails complete with garnish till the very end. We are proud to say that we had the best cocktails thanks to the cocktail bar service!',
+					cite: 'Sam Peters'
+				})
+				+quote-default({
+					quote: 'I’m in love with Gingo for their tasty beverages and fresh desserts! I really enjoy fragrant coffee coupled with berry desserts. Amazing place where you can have a great time!',
+					cite: 'Cameron Williamson'
+				})
+
+	// About us
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			h2.wow.fadeIn
+				span ready to book
+				br
+				span.text-ulight your table?
+			.row.row-30.row-content-3
+				.col-lg-5.offset-lg-1.wow.fadeIn
+					h4 Booking a table
+					p Booking at Gingo is easy. To make a reservation, call us at +1 555 890 901 between 9am-8pm, Monday to Friday or use the form below.
+					p There are always 10% of walk-ins ready places. We do not book sofa & bar area.
+				.col-lg-5.offset-lg-1.wow.fadeIn
+					h4 Private dining & events
+					p There are four private spaces available for lunch, dinner or indeed at any other time like receptions, presentations or brainstorms. In addition our bar is available for breakfast & private hire as are all the other spaces.
+			.row.row-30.row-content-2.align-items-center.justify-content-center.flex-lg-row-reverse
+				.col-md-10.col-lg-7.col-xl-8
+					form.rd-mailform.rd-form-1(data-form-output="form-output-global", data-form-type='order', method='post', action='bat/rd-mailform.php')
+						.form-inner
+							.form-wrap
+								label.form-label(for="contact-date") Date
+								input#contact-date.form-input(type="text", name="date", data-constraints='@Required', data-time-picker="date" )
+							.form-wrap
+								label.form-label(for="contact-time") Time
+								input#contact-time.form-input(type="text", name="time", data-constraints='@Required', data-time-picker="time" )
+							.form-wrap
+								label.form-label(for="contact-phone") Phone
+								input#contact-phone.form-input(type="text" name="phone" data-constraints='@Required @PhoneNumber')
+						.form-button
+							button(type="submit").btn.btn-dark.btn-ujarak Find a table
+				.col-md-5.col-lg-5.col-xl-4
+					.img-responsive
+						+img( 'contacts-01-520x650' )
+
+	// Newsletter
+	section.section.section-lg.bg-default.text-center.text-lg-start
+		.container
+			.row.row-30.align-items-center
+				.col-lg-7.pe-xl-5
+					h2.wow.fadeInUp
+						span NEWS AS FRESH
+						br
+						span AS OUR Drinks
+					p.wow.fadeInUp Get the latest updates on new offers and specials.
+					form.rd-form.rd-mailform.rd-form-boxed.wow.fadeInUp(data-form-output="form-output-global", data-form-type='subscribe', method='post', action='bat/rd-mailform.php')
+						.form-wrap
+							input.form-input(id="subscribe-form-email" type="email" name="email" data-constraints="@Email @Required")
+							label.form-label(for="subscribe-form-email") Your E-mail
+							button.rd-form-boxed-btn.btn.icomoon-envelope
+
+				.col-lg-5
+					+img( 'home-03-807x500' ).img-layout
+
+	include ../sections/_footer-classic

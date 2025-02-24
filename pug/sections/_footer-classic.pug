@@ -1,0 +1,30 @@
+footer.section.footer-classic.context-dark.text-center.text-md-start
+	.container
+		.row.row-30.align-items-end
+			.col-md-4.col-xl-3
+				+logo
+				.list-icons.text-small
+					.list-icons-item
+						.list-icons-icon.icomoon-pin
+						.list-icons-body: a( href='#' ) 3891 Ranchview Dr. Richardson, California 62639
+				.footer-contact.text-small
+					span= 'tel: '
+					a( href='tel:#' ) +(001) 23 45 67 89
+			.col-md-3.col-xl-5
+				+thumbnail-simple({
+					img: 'footer-01-245x245',
+					title: '@gingo_cafe'
+				})
+			.col-md-4.col-xl-4.offset-md-1.offset-xl-0
+				.list-social
+					a.list-social-icon.icomoon-twitter( href='#' )
+					a.list-social-icon.icomoon-facebook( href='#' )
+					a.list-social-icon.icomoon-instagram( href='#' )
+					a.list-social-icon.icomoon-youtube( href='#' )
+					a.list-social-icon.icomoon-pinterest( href='#' )
+				.footer-menu.text-small
+					a.footer-menu-item( href='#' ) Blog
+					a.footer-menu-item( href='#' ) Faq's
+					a.footer-menu-item( href='contacts.html' ) Contact
+					a.footer-menu-item( href='about.html' ) About
+				+rights
